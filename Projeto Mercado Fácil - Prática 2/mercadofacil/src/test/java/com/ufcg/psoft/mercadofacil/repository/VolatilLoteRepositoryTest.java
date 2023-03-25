@@ -1,3 +1,5 @@
+package com.ufcg.psoft.mercadofacil.repository;
+
 import com.ufcg.psoft.mercadofacil.model.Lote;
 import com.ufcg.psoft.mercadofacil.model.Produto;
 import org.junit.jupiter.api.AfterEach;
@@ -9,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 
 import static org.junit.jupiter.api.Assertions.*;
+
 
 
 @SpringBootTest
