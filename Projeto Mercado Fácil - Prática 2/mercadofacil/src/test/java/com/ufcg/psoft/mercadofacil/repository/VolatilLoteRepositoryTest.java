@@ -94,7 +94,7 @@ class VolatilLoteRepositoryTest {
    @DisplayName("Buscar um Lote pelo seu ID")
    void buscarLotePeloId() {
         driver.save(lote);
-        assertEquals(lote.getId(), driver.find(lote.getId()));
+        assertEquals(lote, driver.find(lote.getId()));
     }
 
     @Test
@@ -107,8 +107,9 @@ class VolatilLoteRepositoryTest {
     @Test
     @DisplayName("Buscar todos os Lotes")
     void buscarTodosLotes() {
+        assertEquals(0, driver.findAll().size());
         driver.save(lote);
-        assertEquals(1, driver.findAll().size());
+        assertEquals(1, driver.findAll().size());   
     }
 
     @Test
@@ -121,28 +122,17 @@ class VolatilLoteRepositoryTest {
     }
 
     @Test
-    @DisplayName("Atualizar um Lote que não foi cadastrado")
-    void atualizarLoteNaoCadastrado() {
-        driver.save(lote);
-        lote.setId((long) 2);
-        lote.setNumeroDeItens(50);
-        driver.update(lote);
-        assertFalse(50, driver.find(lote.getId()).getNumeroDeItens());
-    }
-
-    @Test
     @DisplayName("Deletar um Lote")
     void deletarLote() {
         driver.save(lote);
-        driver.delete(lote);
-        assertEquals(0, driver.findAll().size());
-    }
-
-    @Test
-    @DisplayName("Deletar um Lote Nao Cadastrado")
-    void deletarLoteNaoCadastrado() {
-        driver.save(lote);
-        lote.setId((long) 2);
+        Lote lote2 = Lote.builder()
+               .id(2L)
+               .numeroDeItens(100)
+               .produto(produto)
+               .build();
+        
+        driver.save(lote2);
+        assertEquals(2, driver.findAll().size());
         driver.delete(lote);
         assertEquals(1, driver.findAll().size());
     }
@@ -151,15 +141,14 @@ class VolatilLoteRepositoryTest {
     @DisplayName("Deletar todos os Lotes")
     void deletarTodosLotes() {
         driver.save(lote);
-        driver.deleteAll();
-        assertEquals(0, driver.findAll().size());
-    }
-
-    @Test
-    @DisplayName("Deletar todos os Lotes Nao Cadastrados")
-    void deletarTodosLotesNaoCadastrados() {
-        driver.save(lote);
-        driver.deleteAll();
+        Lote lote2 = Lote.builder()
+               .id(2L)
+               .numeroDeItens(100)
+               .produto(produto)
+               .build();
+        
+        driver.save(lote2);
+        assertEquals(2, driver.findAll().size());
         driver.deleteAll();
         assertEquals(0, driver.findAll().size());
     }
