@@ -44,7 +44,7 @@ public class ProdutoValidarCodigoDeBarrasTest {
 
     @Test
     @DisplayName("Validação de código de barras")
-    void alterarNomeDoProduto() {
+    void validarCodigo() {
         assertEquals(driver.validar(produto.getCodigoBarra()), true);
     }
 
