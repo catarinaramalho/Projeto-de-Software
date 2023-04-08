@@ -3,8 +3,10 @@ package com.ufcg.psoft.mercadofacil.controller;
 import com.ufcg.psoft.mercadofacil.model.Produto;
 import com.ufcg.psoft.mercadofacil.service.ProdutoAlterarService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping(
@@ -20,7 +22,7 @@ public class ProdutoV1Controller {
     public Produto atualizarProduto(
             @PathVariable Long id,
             @RequestBody Produto produto) {
-        
+
         try {
             return produtoAtualizarService.alterar(produto);
         } catch (RuntimeException e) {

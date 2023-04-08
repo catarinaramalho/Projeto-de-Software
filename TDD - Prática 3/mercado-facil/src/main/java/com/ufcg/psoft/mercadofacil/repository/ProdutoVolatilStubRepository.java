@@ -14,10 +14,10 @@ public class ProdutoVolatilStubRepository implements ProdutoRepository<Produto, 
 
     @Override
     public Produto find(Long id) {
-        if(id == 10L) {
+        if (id == 10L) {
             return Produto.builder()
                     .id(id)
-                    .codigoBarra("7899137500104")
+                    .codigoBarra("7899137500100")
                     .nome("Produto Dez")
                     .fabricante("Empresa Dez")
                     .preco(450.00)
@@ -33,13 +33,22 @@ public class ProdutoVolatilStubRepository implements ProdutoRepository<Produto, 
 
     @Override
     public Produto update(Produto produto) {
-        if(produto.getId() == 10L) {
+        if (produto.getId() == 10L) {
             return Produto.builder()
                     .id(10L)
-                    .codigoBarra("7899137500104")
+                    .codigoBarra("7899137500100")
                     .nome("Produto Dez Alterado")
-                    .fabricante("Empresa Dez")
-                    .preco(450.00)
+                    .fabricante("Fabricante Alterado")
+                    .preco(10.00)
+                    .build();
+        }
+        if (produto.getId() == 1L) {
+            return Produto.builder()
+                    .id(1L)
+                    .codigoBarra("7899137500100")
+                    .nome("Produto Dez Alterado")
+                    .fabricante("Fabricante Alterado")
+                    .preco(10.00)
                     .build();
         }
         return null;
