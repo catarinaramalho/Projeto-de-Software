@@ -20,6 +20,11 @@ public class ProdutoV1Controller {
     public Produto atualizarProduto(
             @PathVariable Long id,
             @RequestBody Produto produto) {
-        return produtoAtualizarService.alterar(produto);
+        
+        try {
+            return produtoAtualizarService.alterar(produto);
+        } catch (RuntimeException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+        }
     }
 }

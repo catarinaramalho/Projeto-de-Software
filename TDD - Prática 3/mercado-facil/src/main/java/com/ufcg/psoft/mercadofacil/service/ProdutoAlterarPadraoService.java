@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class ProdutoAlterarPadraoService implements ProdutoAlterarService {
     @Autowired
     ProdutoRepository<Produto, Long> produtoRepository;
-    ProdutoValidarCodigoBarrasImpl validador = new ProdutoValidarCodigoBarrasImpl();
+    ProdutoValidarCodigoDeBarrasImpl validador = new ProdutoValidarCodigoDeBarrasImpl();
     @Override
     public Produto alterar(Produto produto) {
         if (produto.getId() == null) {
@@ -26,9 +26,7 @@ public class ProdutoAlterarPadraoService implements ProdutoAlterarService {
         }
         if (produto.getCodigoBarra() == null || produto.getCodigoBarra().isBlank() || !validador.validar(produto.getCodigoBarra())) {
             throw new RuntimeException("Código de barras inválido");
-        } if (produto == null) {
-            throw new RuntimeException("Produto inválido");
-        }
+        } 
         return produtoRepository.update(produto);
     }
 }
