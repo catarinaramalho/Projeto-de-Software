@@ -1,0 +1,86 @@
+// Diagrama UML do sistema Pits A
+// Feito no Modeligado: github.com/matheusgr/modeligado
+
+PitsAApplication
+association Estabelecimento, Entregador, Cliente
+---
+---
++ static main(args: String[]): void
+---
+
+Estabelecimento
+composes Sabor
+---
+- id: Long
+- codigoAcesso: String
+- sabores: Set<Sabor>
+---
+---
+
+Sabor
+association Cliente
+---
+- id: Long
+- nome: String
+- tipo: String
+- precoM: Double
+- precoG: Double
+- disponivel: boolean
+- clientesInteressados: Set<Cliente>
+---
+---
+
+Cliente
+---
+- id: Long
+- nome: String
+- endereco: String
+- codigoAcesso: String
+---
+---
+
+Entregador
+---
+- id: Long
+- nome: String
+- placaVeiculo: String
+- tipoVeiculo: String
+- corVeiculo: String
+- codigoAcesso: String
+---
+---
+
+Associacao
+association Entregador, Estabelecimento
+---
+- id: Long
+- entregadorId: Long
+- estabelecimentoId: Long
+- status: boolean
+---
+---
+
+Pedido
+composes Pizza
+association Cliente, Estabelecimento
+---
+- id: Long
+- preco: Double
+- enderecoEntrega: String
+- clienteId: Long
+- estabelecimentoId: Long
+- statusPagamento: boolean
+- statusEntrega: String
+- pizzas: List<Pizza>
+---
+---
+
+Pizza
+association Sabor
+---
+- id: Long
+- tamanho: String
+- sabor1: sabor
+- sabor2: Sabor
+---
+---
