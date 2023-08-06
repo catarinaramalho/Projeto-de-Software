@@ -34,29 +34,5 @@ Um supermercado da cidade de Campina Grande precisa de um sistema que gerencie o
   dentro do sistema;
 - Não há implementação de frontend, mas o projeto fornece uma interface de acesso à API via swagger.
 
-## Tecnologias
-Código base gerado via [start.sprint.io](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=EstoqueFacil&name=EstoqueFacil&description=Projeto%20Estoque%20Facil&packageName=com.example.EstoqueFacil&dependencies=web,actuator,devtools,data-jpa,h2) com as seguintes dependências:
-
-- Spring Web
-- Spring Actuator
-- Spring Boot DevTools
-- Spring Data JPA
-- H2 Database
-- Cucumber
-
-## Endereços úteis
-
-- [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
-- [http://localhost:8080/h2](http://localhost:8080/h2)
-
-## Testes
-
-<code>> mvn clean test </code>
-
-
-
-## Contato e Dúvidas
-
-- fabio@computacao.ufcg.edu.br
-
-
+## Objetivo Prática 2
+ - Revisão de TDD.
