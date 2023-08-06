@@ -44,19 +44,6 @@ Código base gerado via [start.sprint.io](https://start.spring.io/#!type=maven-p
 - H2 Database
 - Cucumber
 
-## Endereços úteis
-
-- [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
-- [http://localhost:8080/h2](http://localhost:8080/h2)
-
-## Testes
-
-<code>> mvn clean test </code>
-
-
-
-## Contato e Dúvidas
-
-- fabio@computacao.ufcg.edu.br
+## Prática 4
 
 
